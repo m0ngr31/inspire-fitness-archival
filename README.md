@@ -4,7 +4,7 @@ Current version: **1.0.0**
 This allows you to download workouts and programs from the Inspire Fitness app. I was worried that I'd lose access to the videos at some point so for archival purposes I wanted to have a copy of the videos for my machine.
 
 # Running
-The recommended way of running is to pull the image from [Docker Hub](https://hub.docker.com/r/m0ngr31/inpsire-fitness-archival).
+The recommended way of running is to pull the image from [Docker Hub](https://hub.docker.com/r/m0ngr31/inspire-fitness-archival).
 
 The first time you run, you'll need to include the `EMAIL` and `PASSWORD` environment variables so that it can authenticate and get the needed data.
 
@@ -51,11 +51,11 @@ Alongside each workout video there will be a JSON file that contains information
 By default, the easiest way to get running is:
 
 ```bash
-docker run -e DRY_RUN=true -v config_dir:/app/config -v video_dir:/app/videos m0ngr31/inpsire-fitness-archival
+docker run -e DRY_RUN=true -v config_dir:/app/config -v video_dir:/app/videos m0ngr31/inspire-fitness-archival
 ```
 
 If you run into permissions issues:
 
 ```bash
-docker run -e DRY_RUN=true -v config_dir:/app/config -v video_dir:/app/videos -e PUID=$(id -u $USER) -e PGID=$(id -g $USER) m0ngr31/inpsire-fitness-archival
+docker run -e DRY_RUN=true -v config_dir:/app/config -v video_dir:/app/videos -e PUID=$(id -u $USER) -e PGID=$(id -g $USER) m0ngr31/inspire-fitness-archival
 ```
