@@ -1,6 +1,6 @@
 FROM alpine:3.16.2
 
-RUN apk add --update nodejs npm yt-dlp
+RUN apk add --update nodejs npm yt-dlp su-exec shadow
 RUN rm -rf /var/cache/apk/*
 
 RUN mkdir /app
