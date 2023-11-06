@@ -51,11 +51,11 @@ Alongside each workout video there will be a JSON file that contains information
 By default, the easiest way to get running is:
 
 ```bash
-docker run -v config_dir:/app/config -v video_dir:/app/videos m0ngr31/inpsire-fitness-archival
+docker run -e DRY_RUN=true -v config_dir:/app/config -v video_dir:/app/videos m0ngr31/inpsire-fitness-archival
 ```
 
 If you run into permissions issues:
 
 ```bash
-docker run -v config_dir:/app/config -v video_dir:/app/videos -e PUID=$(id -u $USER) -e PGID=$(id -g $USER) m0ngr31/inpsire-fitness-archival
+docker run -e DRY_RUN=true -v config_dir:/app/config -v video_dir:/app/videos -e PUID=$(id -u $USER) -e PGID=$(id -g $USER) m0ngr31/inpsire-fitness-archival
 ```
