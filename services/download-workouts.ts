@@ -16,7 +16,11 @@ const ytDlpWrap = new YTDlpWrap();
 const createFileName = (workout: IWorkout, parentDir: string): string[] => {
   let currentDir = parentDir;
 
-  if (workout.session_groups?.[0] && workout.session_groups[0].name) {
+  if (
+    workout.session_groups?.[0] &&
+    workout.session_groups[0].name &&
+    workout.session_groups[0].group_type === 'program'
+  ) {
     currentDir = path.join(currentDir, workout.session_groups[0].name);
   }
 
@@ -45,6 +49,10 @@ const createFileName = (workout: IWorkout, parentDir: string): string[] => {
 const downloadVideo = async (workout: IWorkout): Promise<void> => {
   const workoutDir = path.join(videoPath, workout.category);
   const [fileName, dir] = createFileName(workout, workoutDir);
+
+  if (!fs.existsSync(workoutDir)) {
+    fs.mkdirSync(workoutDir);
+  }
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
