@@ -43,7 +43,8 @@ const createFileName = (workout: IWorkout, parentDir: string): string[] => {
   return [
     `${fileName} - ${instructor} - ${moment(workout.start_time).format('MM-DD-YYYY')}`
       .replace(/\//, '+')
-      .replace(/:/g, ' - '),
+      .replace(/:/g, ' - ')
+      .replace(/  /g, ' '),
     currentDir,
   ];
 };

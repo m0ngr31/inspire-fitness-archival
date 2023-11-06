@@ -1,4 +1,4 @@
-Current version: **1.0.3**
+Current version: **1.0.4**
 
 # About
 This allows you to download workouts and programs from the Inspire Fitness app. I was worried that I'd lose access to the videos at some point so for archival purposes I wanted to have a copy of the videos for my machine.
