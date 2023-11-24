@@ -61,12 +61,8 @@ const downloadVideo = async (workout: IWorkout): Promise<void> => {
     fs.mkdirSync(dir);
   }
 
-  if (!fs.existsSync(path.join(dir, `${fileName}.json`))) {
-    fsExtra.writeJSONSync(path.join(dir, `${fileName}.json`), workout as any, {spaces: 2});
-  }
-
-  if (fs.existsSync(path.join(dir, `${fileName}.mp4`))) {
-    console.log('Skipping: ', `${fileName}.mp4`);
+  if (fs.existsSync(path.join(dir, `${fileName}.json`))) {
+    console.log('Skipping: ', `${fileName}`);
     return;
   }
 
@@ -81,6 +77,11 @@ const downloadVideo = async (workout: IWorkout): Promise<void> => {
       })
       .on('close', () => {
         console.log('Finished: ', `${fileName}.mp4`);
+
+        if (!fs.existsSync(path.join(dir, `${fileName}.json`))) {
+          fsExtra.writeJSONSync(path.join(dir, `${fileName}.json`), workout as any, {spaces: 2});
+        }
+
         resolve();
       });
   });
