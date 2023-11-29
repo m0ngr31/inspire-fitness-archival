@@ -8,6 +8,8 @@ The recommended way of running is to pull the image from [Docker Hub](https://hu
 
 The first time you run, you'll need to include the `EMAIL` and `PASSWORD` environment variables so that it can authenticate and get the needed data.
 
+If you don't have an Inspire Fitness account yet, you cannot create one from the mobile app, but you can from the [web app](https://app.inspirefitness.com/subscription).
+
 It is highly recommended that you run with the `DRY_RUN` variable set so that you don't accidentally download hundreds or thousands of videos that you didn't intend to!
 
 It will take a long time to download workouts (probably ~1GB each). If you have good bandwidth you can increase the `CONCURRENCY` variable to download more at once. If the app crashes or you cancel it, running again with the same variables will resume the download.
